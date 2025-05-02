@@ -1,12 +1,17 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Vertex<V> {
     private V data;
-    private Map<Vertex<V>, Double> adjacentVertices;
+    private Map<Vertex<V>, Double> adjacentVertices = new HashMap<>();
 
     public Vertex(V data) {
         this.data = data;
-        this.adjacentVertices = new HashMap<>();
+    }
+
+    public V getData() {
+        return data;
     }
 
     public void addAdjacentVertex(Vertex<V> destination, double weight) {
@@ -15,10 +20,6 @@ public class Vertex<V> {
 
     public Map<Vertex<V>, Double> getAdjacentVertices() {
         return adjacentVertices;
-    }
-
-    public V getData() {
-        return data;
     }
 
     @Override
@@ -36,6 +37,6 @@ public class Vertex<V> {
 
     @Override
     public String toString() {
-        return data.toString();
+        return String.valueOf(data);
     }
 }
